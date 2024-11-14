@@ -198,7 +198,7 @@ jobs:
           path: FBX2glTF-linux-x86_64/*
 
   build-linux-arm64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -206,7 +206,7 @@ jobs:
       - name: install aarch64 gcc,multilib
         run: |
           sudo apt update
-          sudo apt install -y gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu \
+          sudo apt install -y gcc make binutils-aarch64-linux-gnu \
           gcc-multilib g++-multilib
 
       - name: Install conan
