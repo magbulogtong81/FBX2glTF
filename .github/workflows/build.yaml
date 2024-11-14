@@ -207,7 +207,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y gcc make binutils-aarch64-linux-gnu \
-          gcc-multilib g++-multilib
+          gcc-multilib g++-multilib g++-aarch64-linux-gnu gcc-aarch64-linux-gnu
 
       - name: check if gcc cross-compiler exist
         run: |
