@@ -209,6 +209,11 @@ jobs:
           sudo apt install -y gcc make binutils-aarch64-linux-gnu \
           gcc-multilib g++-multilib
 
+      - name: check if gcc cross-compiler exist
+        run: |
+          which aarch64-linux-gnu-gcc
+          ls /usr/bin/aarch64-linux-gnu-gcc*
+
       - name: Install conan
         run: |
           pip install --upgrade conan==1.63.0
@@ -226,8 +231,8 @@ jobs:
           conan profile new build
           cat > ~/.conan/profiles/build <<-EOF
           [settings]
-          arch=aarch64
-          arch_build=aarch64
+          arch=armv8
+          arch_build=armv8
           build_type=Release
           compiler=gcc
           compiler.libcxx=libstdc++11
