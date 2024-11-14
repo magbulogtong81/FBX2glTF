@@ -206,8 +206,7 @@ jobs:
       - name: install aarch64 gcc,multilib
         run: |
           sudo apt update
-          sudo apt install -y software-properties-common
-          sudo add-apt-repository main 
+          sudo apt install -y g++-9-aarch64-linux-gnu gcc-9-aarch64-linux-gnu
           sudo apt install -y gcc make binutils-aarch64-linux-gnu \
           gcc-multilib g++-multilib g++-aarch64-linux-gnu gcc-aarch64-linux-gnu
 
