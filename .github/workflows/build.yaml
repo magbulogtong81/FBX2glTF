@@ -211,7 +211,7 @@ jobs:
 
       - name: check if gcc cross-compiler exist
         run: |
-          which aarch64-linux-gnu-gcc
+          #which aarch64-linux-gnu-gcc
           ls /usr/bin/aarch64-linux-gnu-gcc*
 
       - name: Install conan
