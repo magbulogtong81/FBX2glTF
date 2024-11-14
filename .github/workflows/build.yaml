@@ -226,7 +226,8 @@ jobs:
           conan profile new build
           cat > ~/.conan/profiles/build <<-EOF
           [settings]
-          arch=armv8
+          arch=aarch64
+          arch_build=aarch64
           build_type=Release
           compiler=gcc
           compiler.libcxx=libstdc++11
@@ -285,7 +286,7 @@ jobs:
 
       - name: Conan build
         run: |
-          conan build -bf build .
+          conan build -bf build . -pr:h=default -pr:b=build
         shell: bash
 
       - name: show fbx2gltf file info
