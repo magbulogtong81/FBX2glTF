@@ -239,8 +239,8 @@ jobs:
           compiler.version=9
           os=Linux
           [env]
-          CC=aarch64-linux-gnu-gcc
-          CXX=aarch64-linux-gnu-g++
+          CC=aarch64-linux-gnu-gcc-9
+          CXX=aarch64-linux-gnu-g++-9
           LD=aarch64-linux-gnu-ld
           EOF
           
@@ -291,7 +291,7 @@ jobs:
 
       - name: Conan build
         run: |
-          conan build -bf build . -pr:h=default -pr:b=build
+          conan build -bf build .
         shell: bash
 
       - name: show fbx2gltf file info
