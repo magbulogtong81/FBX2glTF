@@ -286,7 +286,7 @@ jobs:
       - name: Conan install
         run: |
           conan install . -i build -s build_type=Release --build fmt -s compiler.libcxx=libstdc++11 --build missing \
-          -pr:h=default -pr:b=build
+          -pr:h=build -pr:b=default
         shell: bash
 
       - name: Conan build
