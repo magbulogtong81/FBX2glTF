@@ -232,7 +232,7 @@ jobs:
           compiler.libcxx=libstdc++11
           compiler.version=9
           os=Linux
-          [buildenv]
+          [env]
           CC=aarch64-linux-gnu-gcc
           CXX=aarch64-linux-gnu-g++
           LD=aarch64-linux-gnu-ld
@@ -280,7 +280,7 @@ jobs:
       - name: Conan install
         run: |
           conan install . -i build -s build_type=Release --build fmt -s compiler.libcxx=libstdc++11 --build missing \
-          pr:b=default -pr:h=build
+          -pr:h=default -pr:b=build
         shell: bash
 
       - name: Conan build
