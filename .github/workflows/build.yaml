@@ -214,9 +214,10 @@ jobs:
           #which aarch64-linux-gnu-gcc
           ls /usr/bin/aarch64-linux-gnu-gcc*
 
-      - name: Install conan
+      - name: Install conan,numpy
         run: |
           pip install --upgrade conan==1.63.0
+          pip install numpy
         shell: bash
 
       - name: Setup conan profile host
