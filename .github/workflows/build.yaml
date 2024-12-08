@@ -212,6 +212,8 @@ jobs:
         run: |
           pip install --upgrade conan==1.63.0
           pip install numpy
+          source ~/.profile
+          source ~/.bashrc
         shell: bash
 
       - name: Setup conan profile host
