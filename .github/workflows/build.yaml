@@ -27,8 +27,8 @@ jobs:
 
       - name: Setup conan profile
         run: |
-          conan profile new default --detect
-          conan profile show default
+         #conan profile new default --detect
+         #conan profile show default
         shell: bash
 
       - name: Setup filter.lfs.required
