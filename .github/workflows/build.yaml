@@ -198,7 +198,7 @@ jobs:
           path: FBX2glTF-linux-x86_64/*
 
   build-linux-arm64:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -206,13 +206,7 @@ jobs:
       - name: install aarch64 gcc,multilib
         run: |
           sudo apt update
-          sudo apt install -y build-essential binutils-aarch64-linux-gnu \
-          g++-9-aarch64-linux-gnu gcc-9-aarch64-linux-gnu
-
-      - name: check if gcc cross-compiler exist
-        run: |
-          #which aarch64-linux-gnu-gcc
-          ls /usr/bin/aarch64-linux-gnu-gcc*
+          sudo apt install -y build-essential
 
       - name: Install conan,numpy
         run: |
@@ -229,22 +223,6 @@ jobs:
 
       - name: Setup conan profile build
         run: |
-          conan profile new build
-          cat > ~/.conan/profiles/build <<-EOF
-          [settings]
-          arch=armv8
-          arch_build=armv8
-          build_type=Release
-          compiler=gcc
-          compiler.libcxx=libstdc++11
-          compiler.version=9
-          os=Linux
-          [env]
-          CC=aarch64-linux-gnu-gcc-9
-          CXX=aarch64-linux-gnu-g++-9
-          LD=aarch64-linux-gnu-ld
-          EOF
-          
           conan profile show build
         shell: bash
 
@@ -286,8 +264,7 @@ jobs:
 
       - name: Conan install
         run: |
-          conan install . -i build -s build_type=Release --build fmt -s compiler.libcxx=libstdc++11 --build missing \
-          -pr:h=build -pr:b=default
+          conan install . -i build -s build_type=Release --build fmt -s compiler.libcxx=libstdc++11 --build missing
         shell: bash
 
       - name: Conan build
