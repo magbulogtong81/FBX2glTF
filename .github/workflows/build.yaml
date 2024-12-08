@@ -208,16 +208,10 @@ jobs:
           sudo apt update
           sudo apt install -y build-essential python3 python3-pip
 
-      - name: add venv
-        run: |
-          python3 -m venv ${{ github.workspace }}/venv
-          source ${{ github.workspace }}/venv/bin/activate
-        shell: bash
-
       - name: Install conan,numpy
         run: |
-          pip install --upgrade conan==1.63.0
-          pip install numpy
+          sudo pip install --upgrade conan==1.63.0
+          sudo pip install numpy
         shell: bash
 
 
