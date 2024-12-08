@@ -222,11 +222,6 @@ jobs:
           conan profile show default
         shell: bash
 
-      - name: Setup conan profile build
-        run: |
-          conan profile show build
-        shell: bash
-
       - name: Setup filter.lfs.required
         run: |
           git config --global filter.lfs.required false
@@ -263,6 +258,8 @@ jobs:
           zstd -d -r --rm ./sdk || true
         shell: bash
 
+
+
       - name: Conan install
         run: |
           conan install . -i build -s build_type=Release --build fmt -s compiler.libcxx=libstdc++11 --build missing
@@ -272,6 +269,7 @@ jobs:
         run: |
           conan build -bf build .
         shell: bash
+
 
       - name: show fbx2gltf file info
         run: |
